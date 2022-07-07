@@ -1,0 +1,7 @@
+CHIP Memory{
+   IN inM[16],loadM,addressM[16];
+   OUT outM[16];
+
+   PARTS:
+   RAM64(in = inM,load = loadM, address = addressM[0..5],out = outM);
+}

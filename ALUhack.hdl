@@ -1,0 +1,302 @@
+        CHIP ALUhack{
+
+        IN X[16],Y[16],zx,nx,zy,ny,f,no,as;/*as is always zero*/
+        OUT out[16],zr,ng;
+
+        PARTS:
+        /*16 bit 2-to-1 mux */
+
+        Not (in=zx, out=nzx);
+
+        And (a=nzx, b=X[0], out=tal0);
+        And (a=zx, b=as, out=sal0);
+        Or (a=tal0, b=sal0, out=x0);
+
+        And (a=nzx, b=X[1], out=tal1);
+        And (a=zx, b=as, out=sal1);
+        Or (a=tal1, b=sal1, out=x1);
+
+        And (a=nzx, b=X[2], out=tal2);
+        And (a=zx, b=as, out=sal2);
+        Or (a=tal2, b=sal2, out=x2);
+
+        And (a=nzx, b=X[3], out=tal3);
+        And (a=zx, b=as, out=sal3);
+        Or (a=tal3, b=sal3, out=x3);
+
+        And (a=nzx, b=X[4], out=tal4);
+        And (a=zx, b=as, out=sal4);
+        Or (a=tal4, b=sal4, out=x4);
+
+
+        And (a=nzx, b=X[5], out=tal5);
+        And (a=zx, b=as, out=sal5);
+        Or (a=tal5, b=sal5, out=x5);
+
+        And (a=nzx, b=X[6], out=tal6);
+        And (a=zx, b=as, out=sal6);
+        Or (a=tal6, b=sal6, out=x6);
+
+        And (a=nzx, b=X[7], out=tal7);
+        And (a=zx, b=as, out=sal7);
+        Or (a=tal7, b=sal7, out=x7);
+
+        And (a=nzx, b=X[8], out=tal8);
+        And (a=zx, b=as, out=sal8);
+        Or (a=tal8, b=sal8, out=x8);
+
+        And (a=nzx, b=X[9], out=tal9);
+        And (a=zx, b=as, out=sal9);
+        Or (a=tal9, b=sal9, out=x9);
+
+        And (a=nzx, b=X[10], out=tal10);
+        And (a=zx, b=as, out=sal10);
+        Or (a=tal10, b=sal10, out=x10);
+
+        And (a=nzx, b=X[11], out=tal11);
+        And (a=zx, b=as, out=sal11);
+        Or (a=tal11, b=sal11, out=x11);
+
+        And (a=nzx, b=X[12], out=tal12);
+        And (a=zx, b=as, out=sal12);
+        Or (a=tal12, b=sal12, out=x12);
+
+        And (a=nzx, b=X[13], out=tal13);
+        And (a=zx, b=as, out=sal13);
+        Or (a=tal13, b=sal13, out=x13);
+
+        And (a=nzx, b=X[14], out=tal14);
+        And (a=zx, b=as, out=sal14);
+        Or (a=tal14, b=sal14, out=x14);
+
+        And (a=nzx, b=X[15], out=tal15);
+        And (a=zx, b=as, out=sal15);
+        Or (a=tal15, b=sal15, out=x15);
+        /*finding xor of output of mux and nx*/
+
+        Xorfind(op0=x0,op1=x1,op2=x2,op3=x3,op4=x4,op5=x5,op6=x6,op7=x7,op8=x8,op9=x9,op10=x10,op11=x11,op12=x12,op13=x13,op14=x14,op15=x15,
+                as0=nx,as1=nx,as2=nx,as3=nx,as4=nx,as5=nx,as6=nx,as7=nx,as8=nx,as9=nx,as10=nx,as11=nx,as12=nx,as13=nx,as14=nx,as15=nx,
+                s0=p0,s1=p1,s2=p2,s3=p3,s4=p4,s5=p5,s6=p6,s7=p7,s8=p8,s9=p9,s10=p10,s11=p11,s12=p12,s13=p13,s14=p14,s15=p15);
+        
+        /*16 bit 2-to-1 mux */
+        
+        Not (in=zy, out=nzy);
+
+        And (a=nzy, b=Y[0], out=taal0);
+        And (a=zy, b=as, out=saal0);
+        Or (a=taal0, b=saal0, out=y0);
+
+        And (a=nzy, b=Y[1], out=taal1);
+        And (a=zy, b=as, out=saal1);
+        Or (a=taal1, b=saal1, out=y1);
+
+        And (a=nzy, b=Y[2], out=taal2);
+        And (a=zy, b=as, out=saal2);
+        Or (a=taal2, b=saal2, out=y2);
+
+        And (a=nzy, b=Y[3], out=taal3);
+        And (a=zy, b=as, out=saal3);
+        Or (a=taal3, b=saal3, out=y3);
+
+        And (a=nzy, b=Y[4], out=taal4);
+        And (a=zy, b=as, out=saal4);
+        Or (a=taal4, b=saal4, out=y4);
+
+
+        And (a=nzy, b=Y[5], out=taal5);
+        And (a=zy, b=as, out=saal5);
+        Or (a=taal5, b=saal5, out=y5);
+
+        And (a=nzy, b=Y[6], out=taal6);
+        And (a=zy, b=as, out=saal6);
+        Or (a=taal6, b=saal6, out=y6);
+
+        And (a=nzy, b=Y[7], out=taal7);
+        And (a=zy, b=as, out=saal7);
+        Or (a=taal7, b=saal7, out=y7);
+
+        And (a=nzy, b=Y[8], out=taal8);
+        And (a=zy, b=as, out=saal8);
+        Or (a=taal8, b=saal8, out=y8);
+
+        And (a=nzy, b=Y[9], out=taal9);
+        And (a=zy, b=as, out=saal9);
+        Or (a=taal9, b=saal9, out=y9);
+
+        And (a=nzy, b=Y[10], out=taal10);
+        And (a=zy, b=as, out=saal10);
+        Or (a=taal10, b=saal10, out=y10);
+
+        And (a=nzy, b=Y[11], out=taal11);
+        And (a=zy, b=as, out=saal11);
+        Or (a=taal11, b=saal11, out=y11);
+
+        And (a=nzy, b=Y[12], out=taal12);
+        And (a=zy, b=as, out=saal12);
+        Or (a=taal12, b=saal12, out=y12);
+
+        And (a=nzy, b=Y[13], out=taal13);
+        And (a=zy, b=as, out=saal13);
+        Or (a=taal13, b=saal13, out=y13);
+
+        And (a=nzy, b=Y[14], out=taal14);
+        And (a=zy, b=as, out=saal14);
+        Or (a=taal14, b=saal14, out=y14);
+
+        And (a=nzy, b=Y[15], out=taal15);
+        And (a=zy, b=as, out=saal15);
+        Or (a=taal15, b=saal15, out=y15);
+        /*finding xor of output of mux and ny*/
+
+        Xorfind(op0=y0,op1=y1,op2=y2,op3=y3,op4=y4,op5=y5,op6=y6,op7=y7,op8=y8,op9=y9,op10=y10,op11=y11,op12=y12,op13=y13,op14=y14,op15=y15,
+                as0=ny,as1=ny,as2=ny,as3=ny,as4=ny,as5=ny,as6=ny,as7=ny,as8=ny,as9=ny,as10=ny,as11=ny,as12=ny,as13=ny,as14=ny,as15=ny,
+                s0=q0,s1=q1,s2=q2,s3=q3,s4=q4,s5=q5,s6=q6,s7=q7,s8=q8,s9=q9,s10=q10,s11=q11,s12=q12,s13=q13,s14=q14,s15=q15);
+
+        /*finding and of 16 bits obtained by two muxs respectivily*/
+
+        Andfind(k0=p0,k1=p1,k2=p2,k3=p3,k4=p4,k5=p5,k6=p6,k7=p7,k8=p8,k9=p9,k10=p10,k11=p11,k12=p12,k13=p13,k14=p14,k15=p15,
+                l0=q0,l1=q1,l2=q2,l3=q3,l4=q4,l5=q5,l6=q6,l7=q7,l8=q8,l9=q9,l10=q10,l11=q11,l12=q12,l13=q13,l14=q14,l15=q15,
+                s0=ra0,s1=ra1,s2=ra2,s3=ra3,s4=ra4,s5=ra5,s6=ra6,s7=ra7,s8=ra8,s9=ra9,s10=ra10,s11=ra11,s12=ra12,s13=ra13,s14=ra14,s15=ra15);
+
+        /*finding sum of 16 bits obtained by two muxs respectivily*/
+
+        ADD (k0=p0,k1=p1,k2=p2,k3=p3,k4=p4,k5=p5,k6=p6,k7=p7,k8=p8,k9=p9,k10=p10,k11=p11,k12=p12,k13=p13,k14=p14,k15=p15,
+                l0=q0,l1=q1,l2=q2,l3=q3,l4=q4,l5=q5,l6=q6,l7=q7,l8=q8,l9=q9,l10=q10,l11=q11,l12=q12,l13=q13,l14=q14,l15=q15,AS=as,
+                s0=rb0,s1=rb1,s2=rb2,s3=rb3,s4=rb4,s5=rb5,s6=rb6,s7=rb7,s8=rb8,s9=rb9,s10=rb10,s11=rb11,s12=rb12,s13=rb13,s14=rb14,s15=rb15);
+
+        /*16 bit 2-to-1 mux */
+
+        Not (in=f, out=nf);
+
+        And (a=nf, b=ra0, out=taaa0);
+        And (a=f, b=rb0, out=saaa0);
+        Or (a=taaa0, b=saaa0, out=r0);
+
+        And (a=nf, b=ra1, out=taaa1);
+        And (a=f, b=rb1, out=saaa1);
+        Or (a=taaa1, b=saaa1, out=r1);
+
+        And (a=nf, b=ra2, out=taaa2);
+        And (a=f, b=rb2, out=saaa2);
+        Or (a=taaa2, b=saaa2, out=r2);
+
+        And (a=nf, b=ra3, out=taaa3);
+        And (a=f, b=rb3, out=saaa3);
+        Or (a=taaa3, b=saaa3, out=r3);
+
+        And (a=nf, b=ra4, out=taaa4);
+        And (a=f, b=rb4, out=saaa4);
+        Or (a=taaa4, b=saaa4, out=r4);
+
+
+        And (a=nf, b=ra5, out=taaa5);
+        And (a=f, b=rb5, out=saaa5);
+        Or (a=taaa5, b=saaa5, out=r5);
+
+        And (a=nf, b=ra6, out=taaa6);
+        And (a=f, b=rb6, out=saaa6);
+        Or (a=taaa6, b=saaa6, out=r6);
+
+        And (a=nf, b=ra7, out=taaa7);
+        And (a=f, b=rb7, out=saaa7);
+        Or (a=taaa7, b=saaa7, out=r7);
+
+        And (a=nf, b=ra8, out=taaa8);
+        And (a=f, b=rb8, out=saaa8);
+        Or (a=taaa8, b=saaa8, out=r8);
+
+        And (a=nf, b=ra9, out=taaa9);
+        And (a=f, b=rb9, out=saaa9);
+        Or (a=taaa9, b=saaa9, out=r9);
+
+        And (a=nf, b=ra10, out=taaa10);
+        And (a=f, b=rb10, out=saaa10);
+        Or (a=taaa10, b=saaa10, out=r10);
+
+        And (a=nf, b=ra11, out=taaa11);
+        And (a=f, b=rb11, out=saaa11);
+        Or (a=taaa11, b=saaa11, out=r11);
+
+        And (a=nf, b=ra12, out=taaa12);
+        And (a=f, b=rb12, out=saaa12);
+        Or (a=taaa12, b=saaa12, out=r12);
+
+        And (a=nf, b=ra13, out=taaa13);
+        And (a=f, b=rb13, out=saaa13);
+        Or (a=taaa13, b=saaa13, out=r13);
+
+        And (a=nf, b=ra14, out=taaa14);
+        And (a=f, b=rb14, out=saaa14);
+        Or (a=taaa14, b=saaa14, out=r14);
+
+        And (a=nf, b=ra15, out=taaa15);
+        And (a=f, b=rb15, out=saaa15);
+        Or (a=taaa15, b=saaa15, out=r15);
+
+        /*finding xor of output of mux and no*/
+
+        Xorfind(op0=r0,op1=r1,op2=r2,op3=r3,op4=r4,op5=r5,op6=r6,op7=r7,op8=r8,op9=r9,op10=r10,op11=r11,op12=r12,op13=r13,op14=r14,op15=r15,
+                as0=no,as1=no,as2=no,as3=no,as4=no,as5=no,as6=no,as7=no,as8=no,as9=no,as10=no,as11=no,as12=no,as13=no,as14=no,as15=no,
+                s0=ou0,s1=ou1,s2=ou2,s3=ou3,s4=ou4,s5=ou5,s6=ou6,s7=ou7,s8=ou8,s9=ou9,s10=ou10,
+                s11=ou11,s12=ou12,s13=ou13,s14=ou14,s15=ou15);
+        
+        /*finding ng*/
+        And (a=ou0, b=ou0, out=out[0]);
+        And (a=ou1, b=ou1, out=out[1]);
+        And (a=ou2, b=ou2, out=out[2]);
+        And (a=ou3, b=ou3, out=out[3]);
+        And (a=ou4, b=ou4, out=out[4]);
+        And (a=ou5, b=ou5, out=out[5]);
+        And (a=ou6, b=ou6, out=out[6]);
+        And (a=ou7, b=ou7, out=out[7]);
+        And (a=ou8, b=ou8, out=out[8]);
+        And (a=ou9, b=ou9, out=out[9]);
+        And (a=ou10, b=ou10, out=out[10]);
+        And (a=ou11, b=ou11, out=out[11]);
+        And (a=ou12, b=ou12, out=out[12]);
+        And (a=ou13, b=ou13, out=out[13]);
+        And (a=ou14, b=ou14, out=out[14]);
+        And (a=ou15, b=ou15, out=out[15]);
+
+        And (a=ou15, b=ou15, out=ng);
+
+        Not (in=ou0, out=nou0);
+        Not (in=ou1, out=nou1);
+        Not (in=ou2, out=nou2);
+        Not (in=ou3, out=nou3);
+        Not (in=ou4, out=nou4);
+        Not (in=ou5, out=nou5);
+        Not (in=ou6, out=nou6);
+        Not (in=ou7, out=nou7);
+        Not (in=ou8, out=nou8);
+        Not (in=ou9, out=nou9);
+        Not (in=ou10, out=nou10);
+        Not (in=ou11, out=nou11);
+        Not (in=ou12, out=nou12);
+        Not (in=ou13, out=nou13);
+        Not (in=ou14, out=nou14);
+        Not (in=ou15, out=nou15);
+
+        /*finding zr*/
+
+        And (a=nou0, b=nou1, out=oul0);
+        And (a=oul0, b=nou2, out=oul1);
+        And (a=oul1, b=nou3, out=oul2);
+        And (a=oul2, b=nou4, out=oul3);
+        And (a=oul3, b=nou5, out=oul4);
+        And (a=oul4, b=nou6, out=oul5);
+        And (a=oul5, b=nou7, out=oul6);
+        And (a=oul6, b=nou8, out=oul7);
+        And (a=oul7, b=nou9, out=oul8);
+        And (a=oul8, b=nou10, out=oul9);
+        And (a=oul9, b=nou11, out=oul10);
+        And (a=oul10, b=nou12, out=oul11);
+        And (a=oul11, b=nou13, out=oul12);
+        And (a=oul12, b=nou14, out=oul13);
+        And (a=oul13, b=nou15, out=zr);
+
+
+        
+
+
+}

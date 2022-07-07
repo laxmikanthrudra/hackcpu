@@ -1,0 +1,17 @@
+
+CHIP PC {
+    IN in[16],load,inc,reset;
+    OUT out[16];
+
+    PARTS:
+	Inc16(in=number,out=incidence);
+    /*incrimenting the value*/
+    Mux16(a=number,b=incidence,sel=inc,out=ol);
+    Mux16(a=ol,b=in,sel=load,out=ump);
+    Mux16(a=ump,b[0..15]=false,sel=reset,out=this);
+	Register(in=this,load=true,out=out,out=number);
+	
+
+}
+
+

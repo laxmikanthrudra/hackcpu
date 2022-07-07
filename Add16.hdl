@@ -1,0 +1,45 @@
+CHIP Add16{
+        IN a[16],b[16],AS;
+        OUT out[16];
+
+        PARTS:
+        /*16-bt adder*/
+        Xor(a=a[0], b=AS, out=Y0);
+        Xor(a=a[1], b=AS, out=Y1);
+        Xor(a=a[2], b=AS, out=Y2);
+        Xor(a=a[3], b=AS, out=Y3);
+        Xor(a=a[4], b=AS, out=Y4);
+        Xor(a=a[5], b=AS, out=Y5);
+        Xor(a=a[6], b=AS, out=Y6);
+        Xor(a=a[7], b=AS, out=Y7);
+        Xor(a=a[8], b=AS, out=Y8);
+        Xor(a=a[9], b=AS, out=Y9);
+        Xor(a=a[10], b=AS, out=Y10);
+        Xor(a=a[11], b=AS, out=Y11);
+        Xor(a=a[12], b=AS, out=Y12);
+        Xor(a=a[13], b=AS, out=Y13);
+        Xor(a=a[14], b=AS, out=Y14);
+        Xor(a=a[15], b=AS, out=Y15);
+        
+        /*adding usumng Full adders*/
+
+        FullAdder(a=b[0], b=Y0, c=AS, carry=c1, sum=out[0]);/*carry is added to next sum bt*/
+        FullAdder(a=b[1], b=Y1, c=c1, carry=c2, sum=out[1]);
+        FullAdder(a=b[2], b=Y2, c=c2, carry=c3, sum=out[2]);
+        FullAdder(a=b[3], b=Y3, c=c3, carry=c4, sum=out[3]);
+        FullAdder(a=b[4], b=Y4, c=c4, carry=c5, sum=out[4]);
+        FullAdder(a=b[5], b=Y5, c=c5, carry=c6, sum=out[5]);
+        FullAdder(a=b[6], b=Y6, c=c6, carry=c7, sum=out[6]);
+        FullAdder(a=b[7], b=Y7, c=c7, carry=c8, sum=out[7]);
+        FullAdder(a=b[8], b=Y8, c=c8, carry=c9, sum=out[8]);
+        FullAdder(a=b[9], b=Y9, c=c9, carry=c10, sum=out[9]);
+        FullAdder(a=b[10], b=Y10, c=c10, carry=c11, sum=out[10]);
+        FullAdder(a=b[11], b=Y11, c=c11, carry=c12, sum=out[11]);
+        FullAdder(a=b[12], b=Y12, c=c12, carry=c13, sum=out[12]);
+        FullAdder(a=b[13], b=Y13, c=c13, carry=c14, sum=out[13]);
+        FullAdder(a=b[14], b=Y14, c=c14, carry=c15, sum=out[14]);
+        FullAdder(a=b[15], b=Y15, c=c15, carry=c16, sum=out[15]);
+
+        
+         
+}

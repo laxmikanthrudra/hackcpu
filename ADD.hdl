@@ -1,0 +1,45 @@
+CHIP ADD{
+        IN k0,k1,k2,k3,k4,k5,k6,k7,k8,k9,k10,k11,k12,k13,k14,k15,l0,l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13,l14,l15,AS;
+        OUT s0,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15;
+
+        PARTS:
+        /*16-bt adder*/
+        Xor(a=l0, b=AS, out=Y0);
+        Xor(a=l1, b=AS, out=Y1);
+        Xor(a=l2, b=AS, out=Y2);
+        Xor(a=l3, b=AS, out=Y3);
+        Xor(a=l4, b=AS, out=Y4);
+        Xor(a=l5, b=AS, out=Y5);
+        Xor(a=l6, b=AS, out=Y6);
+        Xor(a=l7, b=AS, out=Y7);
+        Xor(a=l8, b=AS, out=Y8);
+        Xor(a=l9, b=AS, out=Y9);
+        Xor(a=l10, b=AS, out=Y10);
+        Xor(a=l11, b=AS, out=Y11);
+        Xor(a=l12, b=AS, out=Y12);
+        Xor(a=l13, b=AS, out=Y13);
+        Xor(a=l14, b=AS, out=Y14);
+        Xor(a=l15, b=AS, out=Y15);
+        
+        /*adding usumng Full adders*/
+
+        FullAdder(a=k0, b=Y0, c=AS, carry=c1, sum=s0);/*carry is added to next sum bt*/
+        FullAdder(a=k1, b=Y1, c=c1, carry=c2, sum=s1);
+        FullAdder(a=k2, b=Y2, c=c2, carry=c3, sum=s2);
+        FullAdder(a=k3, b=Y3, c=c3, carry=c4, sum=s3);
+        FullAdder(a=k4, b=Y4, c=c4, carry=c5, sum=s4);
+        FullAdder(a=k5, b=Y5, c=c5, carry=c6, sum=s5);
+        FullAdder(a=k6, b=Y6, c=c6, carry=c7, sum=s6);
+        FullAdder(a=k7, b=Y7, c=c7, carry=c8, sum=s7);
+        FullAdder(a=k8, b=Y8, c=c8, carry=c9, sum=s8);
+        FullAdder(a=k9, b=Y9, c=c9, carry=c10, sum=s9);
+        FullAdder(a=k10, b=Y10, c=c10, carry=c11, sum=s10);
+        FullAdder(a=k11, b=Y11, c=c11, carry=c12, sum=s11);
+        FullAdder(a=k12, b=Y12, c=c12, carry=c13, sum=s12);
+        FullAdder(a=k13, b=Y13, c=c13, carry=c14, sum=s13);
+        FullAdder(a=k14, b=Y14, c=c14, carry=c15, sum=s14);
+        FullAdder(a=k15, b=Y15, c=c15, carry=c16, sum=s15);
+
+        
+         
+}

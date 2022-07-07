@@ -1,0 +1,103 @@
+CHIP Xorfind{
+    IN op0,op1,op2,op3,op4,op5,op6,op7,op8,op9,op10,op11,op12,op13,op14,op15,as0,as1,as2,as3,as4,as5,as6,as7,as8,as9,as10,as11,as12,as13,as14,as15;
+    OUT s0,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15;
+
+    PARTS:
+    /*16 bit xor finder*/
+    Not (in=op0, out=notp0);
+    Not (in=as0, out=notq0);
+    And (a=op0, b=notq0, out=x0);
+    And (a=notp0, b=as0, out=y0);
+    Or (a=x0, b=y0, out=s0); 
+
+    Not (in=op1, out=notp1);
+    Not (in=as1, out=notq1);
+    And (a=op1, b=notq1, out=x1);
+    And (a=notp1, b=as1, out=y1);
+    Or (a=x1, b=y1, out=s1);
+
+    Not (in=op2, out=notp2);
+    Not (in=as2, out=notq2);
+    And (a=op2, b=notq2, out=x2);
+    And (a=notp2, b=as2, out=y2);
+    Or (a=x2, b=y2, out=s2);
+
+    Not (in=op3, out=notp3);
+    Not (in=as3, out=notq3);
+    And (a=op3, b=notq3, out=x3);
+    And (a=notp3, b=as3, out=y3);
+    Or (a=x3, b=y3, out=s3);
+
+    Not (in=op4, out=notp4);
+    Not (in=as4, out=notq4);
+    And (a=op4, b=notq4, out=x4);
+    And (a=notp4, b=as4, out=y4);
+    Or (a=x4, b=y4, out=s4);
+
+    Not (in=op5, out=notp5);
+    Not (in=as5, out=notq5);
+    And (a=op5, b=notq5, out=x5);
+    And (a=notp5, b=as5, out=y5);
+    Or (a=x5, b=y5, out=s5);
+
+    Not (in=op6, out=notp6);
+    Not (in=as6, out=notq6);
+    And (a=op6, b=notq6, out=x6);
+    And (a=notp6, b=as6, out=y6);
+    Or (a=x6, b=y6, out=s6);
+
+    Not (in=op7, out=notp7);
+    Not (in=as7, out=notq7);
+    And (a=op7, b=notq7, out=x7);
+    And (a=notp7, b=as7, out=y7);
+    Or (a=x7, b=y7, out=s7);
+
+    Not (in=op8, out=notp8);
+    Not (in=as8, out=notq8);
+    And (a=op8, b=notq8, out=x8);
+    And (a=notp8, b=as8, out=y8);
+    Or (a=x8, b=y8, out=s8);
+
+    Not (in=op9, out=notp9);
+    Not (in=as9, out=notq9);
+    And (a=op9, b=notq9, out=x9);
+    And (a=notp9, b=as9, out=y9);
+    Or (a=x9, b=y9, out=s9);
+
+    Not (in=op10, out=notp10);
+    Not (in=as10, out=notq10);
+    And (a=op10, b=notq10, out=x10);
+    And (a=notp10, b=as10, out=y10);
+    Or (a=x10, b=y10, out=s10);
+
+    Not (in=op11, out=notp11);
+    Not (in=as11, out=notq11);
+    And (a=op11, b=notq11, out=x11);
+    And (a=notp11, b=as11, out=y11);
+    Or (a=x11, b=y11, out=s11);
+
+    Not (in=op12, out=notp12);
+    Not (in=as12, out=notq12);
+    And (a=op12, b=notq12, out=x12);
+    And (a=notp12, b=as12, out=y12);
+    Or (a=x12, b=y12, out=s12);
+
+    Not (in=op13, out=notp13);
+    Not (in=as13, out=notq13);
+    And (a=op13, b=notq13, out=x13);
+    And (a=notp13, b=as13, out=y13);
+    Or (a=x13, b=y13, out=s13);
+
+    Not (in=op14, out=notp14);
+    Not (in=as14, out=notq14);
+    And (a=op14, b=notq14, out=x14);
+    And (a=notp14, b=as14, out=y14);
+    Or (a=x14, b=y14, out=s14);
+
+    Not (in=op15, out=notp15);
+    Not (in=as15, out=notq15);
+    And (a=op15, b=notq15, out=x15);
+    And (a=notp15, b=as15, out=y15);
+    Or (a=x15, b=y15, out=s15);
+
+}

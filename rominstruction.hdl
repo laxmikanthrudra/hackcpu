@@ -1,0 +1,9 @@
+CHIP rominstruction{
+  IN addressI[16];
+  OUT outI[16];
+
+  PARTS:
+
+  ROM32K(address = addressI[0..14],out = outI);
+  /*this instruction would pass to cpuhack which will genarate out put*/
+}

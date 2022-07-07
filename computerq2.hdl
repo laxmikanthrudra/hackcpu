@@ -1,0 +1,18 @@
+CHIP computerq2 {
+
+    IN reseter;
+
+    PARTS:
+
+	PC( reset = reseter,inc=true, out = pac);/*program counter*/
+
+    rominstruction(addressI = pac,outI = instruct);/*we are giving set of instruction to the the system*/
+
+    /*calling cpuhack */
+    CPUhackq1(inM=i,instruction=instruct,reset=reseter,outM=ou,writeM=wri,addressM=addre);
+    
+    /*storing address back to memory*/
+    Memory(inM =ou, loadM = wri, addressM = addre, outM =i);
+
+
+}

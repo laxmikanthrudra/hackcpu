@@ -1,0 +1,14 @@
+CHIP FullAdder{
+
+    IN a, b, c;
+    OUT carry, sum;/*carry is added to next bit*/
+
+    
+    PARTS:
+    Xor(a=a, b=b, out=p1);
+    Xor(a=p1, b=c, out=sum); /*sum bit generation */
+
+    And(a=a, b=b, out=g1);
+    And(a=p1, b=c, out=p2);
+    Or(a=g1, b=p2, out=carry); /*carry bit generation*/
+}

@@ -1,0 +1,48 @@
+CHIP CPUhackq1 {
+
+    IN  inM[16],instruction[16], reset;           
+    OUT outM[16], writeM, addressM[16],pc[16];
+    PARTS:
+
+	Not(in=instruction[15],out=ni);
+	Mux16(a=outtM,b=instruction,sel=ni,out=i);
+
+	Or(a=ni,b=instruction[5],out=intoA);
+	ARegister(in=i,load=intoA,out=A,out[0..15]=addressM);
+
+	And(a=instruction[15],b=instruction[12],out=AorM);
+	Mux16(a=A,b=inM,sel=AorM,out=AM);
+	/*calling ALU function*/
+	
+	ALUhack(X=D,Y=AM,zx=instruction[11],nx=instruction[10],zy=instruction[9],ny=instruction[8],f=instruction[7],no=instruction[6],out=outtM,out=outM,zr=zr,ng=ng);
+
+	And(a=instruction[15],b=instruction[4],out=intoD);
+	DRegister(in=outtM,load=intoD,out=D);
+
+	And(a=instruction[15],b=instruction[3],out=writeM);
+
+	Not(in=ng,out=poision);
+	Not(in=zr,out=nzr);
+
+	And(a=instruction[15],b=instruction[1],out=jumpeq);
+	And(a=jumpeq,b=zr,out=loud2);
+
+	And(a=instruction[15],b=instruction[2],out=jumplt);
+	And(a=jumplt,b=ng,out=loud3);
+
+	And(a=instruction[15],b=instruction[0],out=jumpgt);
+	And(a=poision,b=nzr,out=posionnzr);
+	And(a=jumpgt,b=posionnzr,out=loud1);
+
+	Or(a=loud1,b=loud2,out=loudt);
+	Or(a=loud3,b=loudt,out=loud);
+	/*instruction to PC*/
+
+	PC(in=A,load=loud,inc=true,reset=reset,out[0..15]=pc);
+
+}
+
+
+
+
+
